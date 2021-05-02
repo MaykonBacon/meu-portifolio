@@ -1,6 +1,7 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   name: 'author',
-  title: 'Author',
+  title: 'Autor',
   type: 'document',
   fields: [
     {
