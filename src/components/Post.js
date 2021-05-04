@@ -25,7 +25,7 @@ export default function Post(){
     }, []);
 
     return (
-        <main className="bg-green-100 min-h-screen p-12">
+        <main className="bg-green-100 min-h-screen p-12 overflow-y-hidden">
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">Página de Posts</h1>
                 <h2 className="text-lg text-gray-600 flex justify-center mb-12"> Bem vindo à minha página de posts</h2>
