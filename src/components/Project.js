@@ -17,19 +17,30 @@ export default function Project(){
         .catch(console.error);
     }, []);
 
+    //2XL: ACIMA -1536px
+    //XL: 4K -1280px
+    //LG: Computador/TV -1024px
+    //MD: Tablet -768px
+    //SM: Mobile -320a425px
+    //block h-64 relative rounded shadow leading-snug bg-white border-l-8 border-green-400
+    //relative rounded-lg shadow-xl bg-white p-16
+    //text-gray-800 font-bold mb-2 hover:text-red-700 sm:text-xs lg:text-xs
+    //grid grid-cols-2
+    // bg-green-500 md:bg-red-500 lg:bg-purple-500
+
     return (
-        <main className="bg-green-100 min-h-screen p-12">
-            <section className="conatiner mx-auto">
+        <main className="bg-green-100 min-h-screen p-12 overflow-y-hidden">
+            <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center cursive">
                     Meus projetos
                 </h1>
-                <h2 className="text-lg text-gray-600 flex justify-center mb-12">
+                <h2 className="text-lg text-gray-600 flex justify-center mb-12 cursive">
                     Bem vindo à minha página de projetos!
                 </h2>
-                <section className="grid grid-cols-2 gap-8">
+                <section className="flex flex-col gap-8 sm:grid grid-cols-2">
                     {projectData && projectData.map((project, index) => (
-                    <article className="relative rounded-lg shadow-xl bg-white p-16">
-                        <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
+                    <article className="relative rounded-lg shadow-xl bg-white lg:p-12" >
+                        <h3 className="text-gray-800 font-bold sm:text-xs md:text-xl lg:text-3xl text-center mb-2">
                             <a 
                                 href={project.link}
                                 alt={project.title}
@@ -39,19 +50,25 @@ export default function Project(){
                                 {project.title}
                             </a>
                         </h3>
-                        <div className="text-gray-500 text-xs space-x-4">
-                            <span>
-                                <strong className="font-bold">Finalizado em:</strong>:{" "}
-                                {new Date(project.date).toLocaleDateString()}
-                            </span>
-                            <span className="font-bold">
-                                <strong>Empresa</strong>:{" "}
-                                {project.place}
-                            </span>
-                            <span>
-                                <strong className="font-bold">Tipo</strong>:{" "}
-                                {project.projectType}
-                            </span>
+                        <div className="text-gray-500 text-xs">
+                            <div>
+                                <span className="text-base">
+                                    <strong className="font-bold lg:text-xl">Finalizado em:</strong>{" "}
+                                    {new Date(project.date).toLocaleDateString()}
+                                </span>
+                            </div>
+                            <div>
+                                <span className="text-base">
+                                    <strong className="font-bold lg:text-xl">Empresa:</strong>{" "}
+                                    {project.place}
+                                </span>
+                            </div>
+                            <div>
+                                <span className="text-base">
+                                    <strong className="font-bold lg:text-xl">Tipo:</strong>{" "}
+                                    {project.projectType}
+                                </span>
+                            </div>
                             <p className="my-6 text-lg text-gray-700 leading-relaxed">
                                 {project.description}
                             </p>

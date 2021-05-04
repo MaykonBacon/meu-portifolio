@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import sanityClient from "../client";
-import bg from "../bgb.jpg";
+//import bg from "../bgb.jpg";
 import imageUrlBuilder from "@sanity/image-url";
 import BlockContent from "@sanity/block-content-to-react";
 
@@ -19,29 +19,35 @@ export default function About(){
             bio,
             "authorImage": image.asset->url
         }`)
-        .then((data) => setAuthor(data[0]))
+        .then((data) => setAuthor(data[1]))
         .catch(console.error);
     }, []);
     
     if(!author) return <div>Carregando...</div>
+    //2XL: ACIMA -1536px
+    //XL: 4K -1280px
+    //LG: Computador/TV -1024px
+    //MD: Tablet -768px
+    //SM: Mobile -320a425px
+    //w-800 h-1280
+    /*<img 
+    src={bg} 
+    alt="Background"
+    className="absolute w-full"
+/>*/
 
     return (
-        <main className="relative">
-            <img 
-                src={bg} 
-                alt="Background"
-                className="absolute w-full"
-            />
-            <div className="p-10 lg:pt-48 container mx-auto relative">
-                <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
+        <main className="bg-green-100 min-h-screen relative overflow-y-hidden">
+            <div className="p-12 lg:pt-48 container mx-auto relative">
+                <section className="bg-green-800 rounded-lg shadow-2xl xl:flex p-20">
                     <img 
                         src={urlFor(author.authorImage).url()}
                         alt={author.name}
-                        className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
+                        className="rounded sm:w-400 sm:h-640 mr-8"
                     />
                     <div className="text-lg flex flex-col justify-center">
-                        <h1 className="cursive text-6xl text-green-300 mb-4">
-                            Olá. Eu sou{" "}
+                        <h1 className="cursive text-6xl text-green-300 mb-4 lg:mt-128">
+                            Olá. Eu sou a {" "}
                             <span className="text-green-100">
                                 {author.name}
                             </span>

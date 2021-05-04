@@ -1,66 +1,35 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { SocialIcon } from "react-social-icons";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function NavBar() {
+const NavBar = ({ toogle }) => {
     return (
-        <header className="bg-red-600">
-            <div className="container mx-auto flex justify-between">
-                <nav className="flex">
-                    <NavLink
-                        to="/"
-                        exact
-                        activeClassName="text-white"
-                        className="inflex-flex items-center py-6 px-3 mr-4 text-red-100 hover:text-green-800 text-4xl font-bold cursive tracking-widest"
-                    >
-                        Home
-                    </NavLink>
-                    <NavLink
-                        to="/post"
-                        activeClassName="text-red-100 bg-red-700"
-                        className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
-                    >
-                        Posts
-                    </NavLink>
-                    <NavLink
-                        to="/project"
-                        activeClassName="text-red-100 bg-red-700"
-                        className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
-                    >
-                        Projetos
-                    </NavLink>
-                    <NavLink
-                        to="/about"
-                        activeClassName="text-red-100 bg-red-700"
-                        className="inline-flex items-center py-3 px-3 my-6 rounded text-red-200 hover:text-green-800"
-                    >
-                        Sobre Mim!
-                    </NavLink>
-                </nav>
-                <div className="inline-flex py-3 px-3 my-6">
-                    <SocialIcon 
-                        url="https://www.facebook.com/maykon.bacon" 
-                        className="mr-4" 
-                        target="_blank" 
-                        fgColor="#fff" 
-                        style={{ height: 35, width: 35 }} 
+        <nav className="flex justify-between item-center h-12 bg-green-500 relative shadow-sm text-red-100 hover:text-green-800 text-4xl" role="navigation">
+            <Link to="/" className="pl-8 font-bold cursive tracking-widest rounded text-red-200 hover:text-green-800">
+                LS
+            </Link>
+            <div className="px-4 cursor-pointer md:hidden" onClick={toogle}>
+                <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-6 w-6" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor">
+                    <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M4 6h16M4 12h16M4 18h16" 
                     />
-                    <SocialIcon 
-                        url="https://www.instagram.com/maykon_bacon/" 
-                        className="mr-4" 
-                        target="_blank" 
-                        fgColor="#fff" 
-                        style={{ height: 35, width: 35 }} 
-                    />
-                    <SocialIcon 
-                        url="https://www.linkedin.com/in/maykon-soares-18039514a/" 
-                        className="mr-4" 
-                        target="_blank" 
-                        fgColor="#fff" 
-                        style={{ height: 35, width: 35 }} 
-                    />
-                </div>
+                </svg>
             </div>
-        </header>
+            <div className="pr-8 md:block hidden font-bold cursive tracking-widest">
+                <Link className="p-4 rounded text-red-200 hover:text-green-800" to="/">Home</Link>
+                <Link className="p-4 rounded text-red-200 hover:text-green-800" to="/post">Posts</Link>
+                <Link className="p-4 rounded text-red-200 hover:text-green-800" to="/project">Projetos</Link>
+                <Link className="p-4 rounded text-red-200 hover:text-green-800" to="/about">Sobre Mim!</Link>
+            </div>
+        </nav>
     )
 }
+
+export default NavBar;
